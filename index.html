@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Polo Analytics Mobile App</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            'deep-red': '#801B2B',
+            'light-red': '#A83245',
+            'beige': '#FDFCFA',
+            'accent': '#E3D0B9'
+          },
+          fontFamily: {
+            sans: ['Inter', 'sans-serif'],
+            serif: ['Playfair Display', 'serif']
+          },
+          boxShadow: {
+            soft: '0 6px 12px rgba(0,0,0,0.08)',
+          }
+        }
+      }
+    }
+  </script>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
+  <style>
+    html {
+      scroll-behavior: smooth;
+    }
+    .fade-in {
+      opacity: 0;
+      transform: translateY(20px);
+      transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+    }
+    .fade-in.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  </style>
+</head>
+<body class="bg-beige text-deep-red font-sans">
+  <!-- Header -->
+  <header class="fixed top-0 left-0 right-0 z-50 bg-white/80 backdrop-blur-md border-b border-beige shadow-sm">
+    <div class="max-w-7xl mx-auto px-6 py-4 flex items-center justify-between">
+      <div class="flex items-center gap-3">
+        <img src="logo.png" alt="Logo" class="w-10 h-10 rounded-full border-2 border-deep-red p-1">
+        <span class="font-serif text-xl font-bold text-deep-red">Polo Analytics</span>
+      </div>
+      <nav class="hidden md:flex gap-6 text-sm font-medium">
+        <a href="#hero" class="hover:text-light-red transition">Home</a>
+        <a href="#features" class="hover:text-light-red transition">Features</a>
+        <a href="#sessions" class="hover:text-light-red transition">Sessions</a>
+        <a href="#download" class="hover:text-light-red transition">Download</a>
+      </nav>
+    </div>
+  </header>
+
+  <!-- Hero Section -->
+  <section id="hero" class="pt-32 md:pt-40 pb-16 md:pb-20 px-6 bg-white">
+    <div class="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-8 items-center fade-in">
+      <div class="text-center md:text-left">
+        <h1 class="text-4xl sm:text-5xl font-serif font-bold mb-4 leading-snug">Polo Analytics</h1>
+        <p class="text-gray-600 text-lg mb-6 md:mb-8 max-w-md md:max-w-lg">Track your horse polo performance with precision and style using our mobile analytics app.</p>
+        <div class="flex flex-col sm:flex-row justify-center md:justify-start gap-4">
+          <a href="#download" class="bg-deep-red text-white px-6 py-3 rounded-xl shadow hover:bg-light-red transition">Get the App</a>
+          <a href="#features" class="text-deep-red font-semibold underline underline-offset-4 hover:text-light-red">Explore Features</a>
+        </div>
+      </div>
+      <div class="flex justify-center md:justify-end">
+        <div class="w-64 h-[500px] bg-black rounded-3xl shadow-xl border-4 border-beige overflow-hidden relative">
+          <img src="screenshot1.jpg" alt="App Screenshot" class="w-full h-full object-cover">
+          <div class="absolute top-2 left-1/2 transform -translate-x-1/2 w-20 h-1.5 bg-white/30 rounded-full"></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Screenshots Carousel -->
+  <section class="py-16 px-6 bg-beige">
+    <div class="max-w-6xl mx-auto text-center">
+      <h2 class="text-3xl font-serif font-bold mb-10">App Screenshots</h2>
+      <div class="flex gap-4 overflow-x-auto snap-x snap-mandatory scrollbar-hide">
+        <div class="min-w-[250px] snap-center shrink-0 rounded-2xl overflow-hidden shadow-lg border border-beige">
+          <img src="screenshot1.jpg" alt="Screenshot 1" class="w-full h-full object-cover">
+        </div>
+        <div class="min-w-[250px] snap-center shrink-0 rounded-2xl overflow-hidden shadow-lg border border-beige">
+          <img src="screenshot2.jpg" alt="Screenshot 2" class="w-full h-full object-cover">
+        </div>
+        <div class="min-w-[250px] snap-center shrink-0 rounded-2xl overflow-hidden shadow-lg border border-beige">
+          <img src="screenshot3.jpg" alt="Screenshot 3" class="w-full h-full object-cover">
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Features Section -->
+  <section id="features" class="py-20 px-6 bg-white fade-in">
+    <div class="max-w-6xl mx-auto text-center">
+      <h2 class="text-3xl font-serif font-bold mb-12">Key Features</h2>
+      <div class="grid md:grid-cols-3 gap-8 text-left">
+        <div class="p-6 bg-beige rounded-xl shadow">
+          <div class="mb-4">
+            <svg class="h-8 w-8 text-deep-red" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M13 10V3L4 14h7v7l9-11h-7z"/></svg>
+          </div>
+          <h3 class="text-xl font-bold mb-2">Real-Time Speed</h3>
+          <p class="text-gray-600">Monitor your speed during training and matches with live updates.</p>
+        </div>
+        <div class="p-6 bg-beige rounded-xl shadow">
+          <div class="mb-4">
+            <svg class="h-8 w-8 text-deep-red" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7" /></svg>
+          </div>
+          <h3 class="text-xl font-bold mb-2">Horse Stats</h3>
+          <p class="text-gray-600">Track individual performance and compare between horses.</p>
+        </div>
+        <div class="p-6 bg-beige rounded-xl shadow">
+          <div class="mb-4">
+            <svg class="h-8 w-8 text-deep-red" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M15 10l4.553-2.276A2 2 0 0122 9.618v4.764a2 2 0 01-2.447 1.894L15 14M4 6h16M4 10h16M4 14h10M4 18h10"/></svg>
+          </div>
+          <h3 class="text-xl font-bold mb-2">Training Sessions</h3>
+          <p class="text-gray-600">Log your sessions and visualize progress over time.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Download Section -->
+  <section id="download" class="py-20 px-6 bg-beige text-center fade-in">
+    <div class="max-w-xl mx-auto">
+      <h2 class="text-3xl font-serif font-bold mb-6">Download the App</h2>
+      <p class="text-gray-600 mb-8">Join professionals using Polo Analytics to ride smarter and faster.</p>
+      <div class="flex flex-col sm:flex-row justify-center gap-4">
+        <a href="#" class="bg-deep-red text-white px-6 py-3 rounded-xl shadow hover:bg-light-red transition">Google Play</a>
+        <a href="#" class="bg-deep-red text-white px-6 py-3 rounded-xl shadow hover:bg-light-red transition">App Store</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="py-10 bg-white border-t border-beige text-center text-sm text-gray-500">
+    <p>&copy; 2025 Polo Analytics. All rights reserved.</p>
+      <div class="mt-4 flex justify-center gap-6 text-xs">
+      <a href="terms.html" class="text-gray-500 hover:text-deep-red underline">Terms & Conditions</a>
+      <a href="privacy.html" class="text-gray-500 hover:text-deep-red underline">Privacy Policy</a>
+    </div>
+  </footer>
+
+  <script>
+    // Simple scroll reveal animation
+    const faders = document.querySelectorAll('.fade-in');
+    const options = { threshold: 0.1 };
+
+    const appearOnScroll = new IntersectionObserver(function(entries, observer) {
+      entries.forEach(entry => {
+        if (!entry.isIntersecting) return;
+        entry.target.classList.add('visible');
+        observer.unobserve(entry.target);
+      });
+    }, options);
+
+    faders.forEach(fader => {
+      appearOnScroll.observe(fader);
+    });
+  </script>
+</body>
+</html>
