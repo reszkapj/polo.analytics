@@ -32,26 +32,84 @@
 
   <!-- Fonts & Tailwind setup -->
   <script src="https://cdn.tailwindcss.com"></script>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&family=Cormorant+Garamond:ital,wght@1,500;1,600;1,700&display=swap" rel="stylesheet">
   <script>
     tailwind.config = {
       theme: {
         extend: {
           colors: {
-            'deep-red': '#801B2B',
-            'light-red': '#A83245',
+            'deep-red': '#821B2B',
+            'light-red': '#A53547',
+            'bordo-deep': '#5E101D',
             'beige': '#FDFCFA',
-            'accent': '#E3D0B9'
+            'paper': '#F5F0E6',
+            'ink': '#14110F',
+            'ink-2': '#3D3633',
+            'ink-soft': '#8A7F78',
+            'hair': '#ECE5D8',
+            'accent': '#B89455'
           },
           fontFamily: {
-            sans: ['Inter', 'sans-serif'],
-            serif: ['Playfair Display', 'serif']
+            sans: ['Manrope', 'sans-serif'],
+            serif: ['Cormorant Garamond', 'serif']
           },
           boxShadow: { soft: '0 6px 12px rgba(0,0,0,0.08)' }
         }
       }
     }
   </script>
+  <style>
+    .font-serif { font-style: italic; font-weight: 600; letter-spacing: -0.01em; }
+
+    .eyebrow {
+      font-family: 'Manrope', sans-serif; font-weight: 700; font-size: 11px;
+      letter-spacing: 0.32em; text-transform: uppercase; color: #B89455;
+      margin-bottom: 14px; display: block;
+    }
+    .eyebrow.on-dark { color: #E3D0B9; }
+
+    .gold-divider { display: flex; align-items: center; gap: 10px; }
+    .gold-divider .line { flex: 1; height: 1px; background: #D9CFBC; max-width: 64px; }
+    .gold-divider .dot { width: 5px; height: 5px; border-radius: 50%; background: #B89455; flex: none; }
+
+    .cta-primary {
+      display: inline-flex; align-items: center; justify-content: center; gap: 8px;
+      background: linear-gradient(135deg, #2A0C13 0%, #5E101D 55%, #821B2B 100%);
+      color: #FDFCFA; font-weight: 800; font-size: 14.5px; letter-spacing: 0.01em;
+      padding: 15px 30px; border-radius: 16px;
+      box-shadow: 0 20px 34px -14px rgba(94,16,29,0.55), 0 6px 14px -4px rgba(94,16,29,0.3);
+      transition: transform .15s ease, box-shadow .15s ease;
+    }
+    .cta-primary:hover { transform: translateY(-1px); box-shadow: 0 24px 38px -14px rgba(94,16,29,0.6), 0 8px 16px -4px rgba(94,16,29,0.35); }
+
+    .cta-outline {
+      display: inline-flex; align-items: center; justify-content: center; gap: 8px;
+      background: #FDFCFA; color: #821B2B; font-weight: 700; font-size: 13.5px;
+      padding: 14px 28px; border-radius: 16px; border: 1.5px solid #821B2B;
+      transition: background .15s ease;
+    }
+    .cta-outline:hover { background: #F5F0E6; }
+
+    .a3-card {
+      background: #FDFCFA; border: 1px solid #ECE5D8; border-radius: 20px;
+      box-shadow: 0 12px 28px -18px rgba(60,20,20,.18);
+    }
+    .icon-badge {
+      width: 56px; height: 56px; border-radius: 16px; background: #F5F0E6;
+      display: flex; align-items: center; justify-content: center; margin-bottom: 18px;
+      box-shadow: 0 8px 18px -10px rgba(60,20,20,.15);
+    }
+    .stat-card {
+      background: #FDFCFA; border: 1px solid #ECE5D8; border-radius: 18px;
+      padding: 26px 20px; position: relative; padding-left: 28px;
+    }
+    .stat-card::before {
+      content: ''; position: absolute; left: 14px; top: 22px; bottom: 22px; width: 3px;
+      border-radius: 2px; background: #821B2B;
+    }
+    .section-title { font-size: 34px; }
+    @media (min-width: 640px) { .section-title { font-size: 42px; } }
+  </style>
 
   <!-- Analytics (mogą zostać; nie wpływają na OG, ale niech będą poniżej meta) -->
   <script defer data-domain="poloanalytics.app" src="https://plausible.io/js/script.js"></script>
@@ -66,47 +124,48 @@
 
 <body class="bg-beige text-deep-red font-sans">
 <!-- Header -->
-<header class="fixed top-0 left-0 right-0 z-50 bg-white/80 backdrop-blur-md border-b border-beige shadow-sm">
+<header class="fixed top-0 left-0 right-0 z-50 bg-beige/85 backdrop-blur-md border-b border-hair">
   <div class="max-w-7xl mx-auto px-6 py-4 flex items-center justify-between">
     <a href="#hero" class="flex items-center gap-3">
-      <img src="public/logo.png" alt="Logo" class="w-10 h-10 rounded-full border-2 border-deep-red p-1">
-      <span class="font-serif text-xl font-bold text-deep-red">Polo Analytics</span>
+      <img src="public/logo.png" alt="Logo" class="w-9 h-9 object-contain">
+      <span class="font-serif text-xl text-deep-red">Polo Analytics</span>
     </a>
-    <nav class="hidden md:flex gap-6 text-sm font-medium">
-      <a href="#hero" class="hover:text-light-red transition">Home</a>
-      <a href="#features" class="hover:text-light-red transition">Features</a>
-      <a href="#download" class="hover:text-light-red transition">Download</a>
-      <a href="#contact" class="hover:text-light-red transition">Contact</a>
+    <nav class="hidden md:flex gap-8 text-xs font-bold uppercase tracking-widest text-ink-2">
+      <a href="#hero" class="hover:text-deep-red transition">Home</a>
+      <a href="#features" class="hover:text-deep-red transition">Features</a>
+      <a href="#download" class="hover:text-deep-red transition">Download</a>
+      <a href="#contact" class="hover:text-deep-red transition">Contact</a>
     </nav>
   </div>
 </header>
 
 <!-- Hero Section -->
-<section id="hero" class="pt-28 md:pt-32 pb-14 md:pb-16 px-6 bg-white">
-  <div class="max-w-6xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-6 items-center fade-in">
-    
+<section id="hero" class="pt-24 md:pt-32 pb-10 md:pb-14 px-6 bg-beige">
+  <div class="max-w-6xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-10 items-center fade-in">
+
     <!-- Text Side -->
-    <div class="text-center md:text-left">
-      <h1 class="text-4xl sm:text-5xl font-serif font-bold mb-4 leading-tight">
-        Polo Analytics: <br/>Real-Time Horse Tracking
+    <div class="text-left">
+      <span class="eyebrow">Real-Time Horse Tracking</span>
+      <h1 class="font-serif mb-5 leading-[1.05] text-[28px] sm:text-4xl md:text-5xl whitespace-nowrap">
+        Track every gallop.
       </h1>
-      <p class="text-gray-600 text-lg mb-6 md:mb-8 max-w-md md:max-w-lg mx-auto md:mx-0">
-        XXXX Monitor your horse’s max. speed, distance and training history with unmatched accuracy — all in one sleek, easy-to-use mobile app designed specifically for polo players and trainers.
+      <p class="text-ink-2 text-lg mb-8 md:mb-9 max-w-md md:max-w-lg">
+        Monitor your horse's max. speed, distance and training history with unmatched accuracy — all in one sleek, easy-to-use mobile app designed specifically for polo players and trainers.
       </p>
-      
-      <div class="flex flex-col sm:flex-row justify-center md:justify-start gap-4">
-        <a href="#download" class="bg-deep-red text-white px-6 py-3 rounded-xl shadow hover:bg-light-red transition">
+
+      <div class="flex flex-col sm:flex-row justify-start gap-4">
+        <a href="#download" class="cta-primary">
           Get the App
         </a>
-        <a href="#features" class="text-deep-red font-semibold underline underline-offset-4 hover:text-light-red">
+        <a href="#features" class="cta-outline">
           Explore Features
         </a>
       </div>
-      
+
 
 
       <!-- Store Badges -->
-      <div class="flex justify-center md:justify-start gap-4 mt-6">
+      <div class="flex justify-start gap-4 mt-6">
         <a href="https://play.google.com/store/apps/details?id=com.inigra.poloanalytics" target="_blank" rel="noopener">
           <img src="public/google-play-badge.png" alt="Get it on Google Play" class="h-8 hover:scale-105 transition-transform duration-200">
         </a>
@@ -118,10 +177,7 @@
 
     <!-- Screenshot Side -->
     <div class="flex justify-center md:justify-end">
-      <div class="w-56 sm:w-64 h-[460px] sm:h-[500px] bg-black rounded-3xl shadow-xl border-4 border-beige overflow-hidden relative">
-        <img src="public/screenshot1.jpg" alt="App Screenshot" class="w-full h-full object-cover">
-        <div class="absolute top-2 left-1/2 transform -translate-x-1/2 w-20 h-1.5 bg-white/30 rounded-full"></div>
-      </div>
+      <img src="public/a3-speed.jpg" alt="App Screenshot" class="w-56 sm:w-64 rounded-[2.5rem] shadow-xl">
     </div>
   </div>
 </section>
@@ -166,43 +222,45 @@
 </style>
 
 <!-- Accuracy & Precision Section -->
-<section id="accuracy" class="py-20 px-6 bg-white fade-in">
+<section id="accuracy" class="py-12 md:py-16 px-6 bg-beige fade-in">
   <div class="max-w-5xl mx-auto text-center">
-    <h2 class="text-3xl font-serif font-bold mb-12">Accuracy & Precision</h2>
+    <span class="eyebrow">Benchmarked</span>
+    <h2 class="section-title font-serif mb-3">Accuracy & Precision</h2>
+    <div class="gold-divider justify-center mb-8"><span class="line"></span><span class="dot"></span><span class="line"></span></div>
 
     <!-- Benchmark Text -->
-    <p class="text-gray-600 text-lg mb-14 max-w-3xl mx-auto">
-      Polo Analytics has been benchmarked against the industry-standard 
+    <p class="text-ink-2 text-lg mb-10 max-w-3xl mx-auto">
+      Polo Analytics has been benchmarked against the industry-standard
       <span class="relative group cursor-pointer font-bold text-deep-red">
         Racelogic PerformanceBox 10 Hz
         <!-- Tooltip -->
         <span class="absolute left-1/2 -translate-x-1/2 mt-2 w-64 bg-white text-gray-700 text-sm rounded-lg shadow-lg p-4 opacity-0 group-hover:opacity-100 transition duration-300 z-20">
           <img src="public/racelogic.jpg" alt="Racelogic PerformanceBox 10 Hz" class="mb-2 rounded-md shadow">
-          A professional 10 Hz GPS performance meter widely used in motorsports 
+          A professional 10 Hz GPS performance meter widely used in motorsports
           for precise measurement of speed, distance, and acceleration.
         </span>
       </span>
-      — a professional GPS device widely used in motorsports 
+      — a professional GPS device widely used in motorsports
       for precise speed and distance measurements.
     </p>
 
     <!-- Stats Grid -->
-    <div class="grid md:grid-cols-4 gap-8 mb-14">
-      <div class="bg-beige rounded-xl shadow p-6">
-        <p class="text-4xl font-bold text-deep-red mb-2">&lt;0.42</p>
-        <p class="text-gray-600 text-sm">Average Difference (km/h)</p>
+    <div class="grid md:grid-cols-4 gap-6 mb-10">
+      <div class="stat-card text-left">
+        <p class="text-4xl font-extrabold text-deep-red mb-1">&lt;0.42</p>
+        <p class="eyebrow !text-ink-soft !mb-0" style="letter-spacing:.12em;">Average Difference (km/h)</p>
       </div>
-      <div class="bg-beige rounded-xl shadow p-6">
-        <p class="text-4xl font-bold text-deep-red mb-2">0.69</p>
-        <p class="text-gray-600 text-sm">Mean Absolute Deviation (km/h)</p>
+      <div class="stat-card text-left">
+        <p class="text-4xl font-extrabold text-deep-red mb-1">0.69</p>
+        <p class="eyebrow !text-ink-soft !mb-0" style="letter-spacing:.12em;">Mean Absolute Deviation (km/h)</p>
       </div>
-      <div class="bg-beige rounded-xl shadow p-6">
-        <p class="text-4xl font-bold text-deep-red mb-2">1.75</p>
-        <p class="text-gray-600 text-sm">Max Deviation (km/h)</p>
+      <div class="stat-card text-left">
+        <p class="text-4xl font-extrabold text-deep-red mb-1">1.75</p>
+        <p class="eyebrow !text-ink-soft !mb-0" style="letter-spacing:.12em;">Max Deviation (km/h)</p>
       </div>
-      <div class="bg-beige rounded-xl shadow p-6">
-        <p class="text-4xl font-bold text-deep-red mb-2">&lt;1.56%</p>
-        <p class="text-gray-600 text-sm">Error Margin</p>
+      <div class="stat-card text-left">
+        <p class="text-4xl font-extrabold text-deep-red mb-1">&lt;1.56%</p>
+        <p class="eyebrow !text-ink-soft !mb-0" style="letter-spacing:.12em;">Error Margin</p>
       </div>
     </div>
 
@@ -222,24 +280,26 @@
 
   
  <!-- Screenshots Carousel -->
-<section class="py-16 px-6 bg-beige">
+<section class="py-12 md:py-16 px-6 bg-white">
   <div class="max-w-6xl mx-auto text-center">
-    <h2 class="text-3xl font-serif font-bold mb-10">App Screenshots</h2>
-    <div class="flex gap-6 overflow-x-auto snap-x snap-mandatory scrollbar-hide px-2">
-      <div class="min-w-[180px] max-w-[240px] snap-center shrink-0 rounded-2xl overflow-hidden shadow-lg border border-beige bg-white">
-        <img src="public/image1.jpeg" alt="Screenshot 1" class="w-full h-auto object-cover">
+    <span class="eyebrow">See It In Action</span>
+    <h2 class="section-title font-serif mb-3">App Screenshots</h2>
+    <div class="gold-divider justify-center mb-8"><span class="line"></span><span class="dot"></span><span class="line"></span></div>
+    <div class="flex gap-6 overflow-x-auto snap-x snap-mandatory scrollbar-hide px-2 pb-2">
+      <div class="min-w-[180px] max-w-[240px] snap-center shrink-0 rounded-2xl overflow-hidden shadow-lg border border-hair bg-white">
+        <img src="public/a3-splash.jpg" alt="Welcome screen" class="w-full h-auto object-cover">
       </div>
-      <div class="min-w-[180px] max-w-[240px] snap-center shrink-0 rounded-2xl overflow-hidden shadow-lg border border-beige bg-white">
-        <img src="public/image2.jpeg" alt="Screenshot 2" class="w-full h-auto object-cover">
+      <div class="min-w-[180px] max-w-[240px] snap-center shrink-0 rounded-2xl overflow-hidden shadow-lg border border-hair bg-white">
+        <img src="public/a3-speed.jpg" alt="Live tracking screen" class="w-full h-auto object-cover">
       </div>
-      <div class="min-w-[180px] max-w-[240px] snap-center shrink-0 rounded-2xl overflow-hidden shadow-lg border border-beige bg-white">
-        <img src="public/image3.jpeg" alt="Screenshot 3" class="w-full h-auto object-cover">
+      <div class="min-w-[180px] max-w-[240px] snap-center shrink-0 rounded-2xl overflow-hidden shadow-lg border border-hair bg-white">
+        <img src="public/a3-distance.jpg" alt="Session summary screen" class="w-full h-auto object-cover">
       </div>
-        <div class="min-w-[180px] max-w-[240px] snap-center shrink-0 rounded-2xl overflow-hidden shadow-lg border border-beige bg-white">
-        <img src="public/image4.jpeg" alt="Screenshot 3" class="w-full h-auto object-cover">
+        <div class="min-w-[180px] max-w-[240px] snap-center shrink-0 rounded-2xl overflow-hidden shadow-lg border border-hair bg-white">
+        <img src="public/a3-stable.jpg" alt="Your stable screen" class="w-full h-auto object-cover">
       </div>
-        <div class="min-w-[180px] max-w-[240px] snap-center shrink-0 rounded-2xl overflow-hidden shadow-lg border border-beige bg-white">
-        <img src="public/image5.jpeg" alt="Screenshot 3" class="w-full h-auto object-cover">
+        <div class="min-w-[180px] max-w-[240px] snap-center shrink-0 rounded-2xl overflow-hidden shadow-lg border border-hair bg-white">
+        <img src="public/a3-analytics.jpg" alt="Performance screen" class="w-full h-auto object-cover">
       </div>
     </div>
   </div>
@@ -247,36 +307,38 @@
 
 
   <!-- Features Section -->
-<section id="features" class="py-20 px-6 bg-white fade-in">
+<section id="features" class="py-12 md:py-16 px-6 bg-beige fade-in">
   <div class="max-w-6xl mx-auto text-center">
-    <h2 class="text-3xl font-serif font-bold mb-12">Key Features</h2>
-    <div class="grid md:grid-cols-3 gap-8 text-left">
-      <div class="p-6 bg-beige rounded-xl shadow">
-        <div class="mb-4">
-          <svg class="h-8 w-8 text-deep-red" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+    <span class="eyebrow">What you get</span>
+    <h2 class="section-title font-serif mb-3">Key Features</h2>
+    <div class="gold-divider justify-center mb-8"><span class="line"></span><span class="dot"></span><span class="line"></span></div>
+    <div class="grid md:grid-cols-3 gap-6 text-left">
+      <div class="a3-card p-7">
+        <div class="icon-badge">
+          <svg class="h-6 w-6 text-deep-red" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
             <path stroke-linecap="round" stroke-linejoin="round" d="M13 10V3L4 14h7v7l9-11h-7z"/>
           </svg>
         </div>
-        <h3 class="text-xl font-bold mb-2">Real-Time Precision</h3>
-        <p class="text-gray-600">Capture your horse's speed with unmatched second-by-second accuracy during every training session.</p>
+        <h3 class="text-lg font-extrabold mb-2 text-ink">Real-Time Precision</h3>
+        <p class="text-ink-soft">Capture your horse's speed with unmatched second-by-second accuracy during every training session.</p>
       </div>
-      <div class="p-6 bg-beige rounded-xl shadow">
-        <div class="mb-4">
-          <svg class="h-8 w-8 text-deep-red" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+      <div class="a3-card p-7">
+        <div class="icon-badge">
+          <svg class="h-6 w-6 text-deep-red" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
             <path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7" />
           </svg>
         </div>
-        <h3 class="text-xl font-bold mb-2">Horse Overview</h3>
-        <p class="text-gray-600">Access detailed summaries for each horse — including average and maximum speeds across all sessions.</p>
+        <h3 class="text-lg font-extrabold mb-2 text-ink">Horse Overview</h3>
+        <p class="text-ink-soft">Access detailed summaries for each horse — including average and maximum speeds across all sessions.</p>
       </div>
-      <div class="p-6 bg-beige rounded-xl shadow">
-        <div class="mb-4">
-          <svg class="h-8 w-8 text-deep-red" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+      <div class="a3-card p-7">
+        <div class="icon-badge">
+          <svg class="h-6 w-6 text-deep-red" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
             <path stroke-linecap="round" stroke-linejoin="round" d="M4 6h16M4 10h16M4 14h10M4 18h10"/>
           </svg>
         </div>
-        <h3 class="text-xl font-bold mb-2">Training History</h3>
-        <p class="text-gray-600">Review all recorded training sessions in one place — with key metrics and performance breakdowns.</p>
+        <h3 class="text-lg font-extrabold mb-2 text-ink">Training History</h3>
+        <p class="text-ink-soft">Review all recorded training sessions in one place — with key metrics and performance breakdowns.</p>
       </div>
     </div>
   </div>
@@ -284,35 +346,39 @@
   
 
   <!-- Download Section -->
-  <section id="download" class="py-20 px-6 bg-beige text-center fade-in">
+  <section id="download" class="py-12 md:py-16 px-6 bg-white text-center fade-in">
     <div class="max-w-xl mx-auto">
-      <h2 class="text-3xl font-serif font-bold mb-6">Download the App</h2>
-      <p class="text-gray-600 mb-8">Join professionals using Polo Analytics to ride smarter and faster.</p>
+      <span class="eyebrow">Get Started</span>
+      <h2 class="section-title font-serif mb-3">Download the App</h2>
+      <div class="gold-divider justify-center mb-6"><span class="line"></span><span class="dot"></span><span class="line"></span></div>
+      <p class="text-ink-soft mb-7">Join professionals using Polo Analytics to ride smarter and faster.</p>
       <div class="flex flex-col sm:flex-row justify-center gap-4">
-        <a href="https://play.google.com/store/apps/details?id=com.inigra.poloanalytics" class="bg-deep-red text-white px-6 py-3 rounded-xl shadow hover:bg-light-red transition">Google Play</a>
-        <a href="https://apps.apple.com/pl/app/polo-analytics/id6749900538" class="bg-deep-red text-white px-6 py-3 rounded-xl shadow hover:bg-light-red transition">App Store</a>
+        <a href="https://play.google.com/store/apps/details?id=com.inigra.poloanalytics" class="cta-primary">Google Play</a>
+        <a href="https://apps.apple.com/pl/app/polo-analytics/id6749900538" class="cta-primary">App Store</a>
       </div>
     </div>
   </section>
 
 <!-- Contact Section -->
-<section id="contact" class="py-20 px-6 bg-white text-center fade-in">
+<section id="contact" class="py-12 md:py-16 px-6 bg-beige text-center fade-in">
   <div class="max-w-4xl mx-auto">
-    <h2 class="text-3xl font-serif font-bold mb-6">Contact</h2>
-    <p class="text-lg mb-4">If you have any questions or need assistance, feel free to reach out:</p>
-    
-    <div class="mb-10 text-deep-red font-medium text-lg">
-      <p>Email: <a href="mailto:support@poloanalytics.app" class="underline hover:text-light-red">support@poloanalytics.app</a></p>
+    <span class="eyebrow">We're here to help</span>
+    <h2 class="section-title font-serif mb-3">Contact</h2>
+    <div class="gold-divider justify-center mb-6"><span class="line"></span><span class="dot"></span><span class="line"></span></div>
+    <p class="text-lg mb-4 text-ink-2">If you have any questions or need assistance, feel free to reach out:</p>
+
+    <div class="mb-10 text-deep-red font-bold text-lg">
+      <p>Email: <a href="mailto:info@inigra.eu" class="underline hover:text-light-red">info@inigra.eu</a></p>
     </div>
   </div>
 </section>
 
 <!-- Crafted by Inigra -->
-<section class="bg-beige py-12 px-6 border-t border-deep-red fade-in">
+<section class="bg-white py-12 px-6 border-t border-hair fade-in">
   <div class="max-w-3xl mx-auto text-center">
-    <p class="text-sm text-gray-500 mb-4">Designed and Developed by</p>
+    <p class="text-sm text-ink-soft mb-4">Designed and Developed by</p>
     <img src="public/inigra-logo-short.png" alt="Inigra Logo" class="w-20 sm:w-24 mx-auto mb-2" />
-    
+
     <div class="text-sm text-deep-red space-y-1">
       <p>Email: <a href="mailto:info@inigra.eu" class="underline hover:text-light-red">info@inigra.eu</a></p>
       <p>Phone: <a href="tel:+48509992212" class="underline hover:text-light-red">+48 509 992 212</a></p>
@@ -325,8 +391,8 @@
 
 
   <!-- Footer -->
-  <footer class="py-10 bg-white border-t border-beige text-center text-sm text-gray-500">
-    <p>&copy; 2025 Polo Analytics. All rights reserved.</p>
+  <footer class="py-10 bg-beige border-t border-hair text-center text-sm text-ink-soft">
+    <p>&copy; 2026 Polo Analytics. All rights reserved.</p>
       <div class="mt-4 flex justify-center gap-6 text-xs">
       <a href="/terms" class="text-gray-500 hover:text-deep-red underline">Terms & Conditions</a>
       <a href="/privacy" class="text-gray-500 hover:text-deep-red underline">Privacy Policy</a>
